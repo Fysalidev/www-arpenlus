@@ -3,7 +3,7 @@ import { INSTAGRAM, MAIL, TELEPHONE, WHATSAPP } from "@/lib/site";
 // Accueil (session du 14/11) : page noire — titre ARPENLUS en Anton
 // blanc uni, grand carré centré rempli du motif zébré, « 2026 »,
 // paragraphe, puis icônes contact (téléphone, mail, Instagram,
-// WhatsApp).
+// WhatsApp). Apparition rapide en cascade à l'arrivée (globals.css).
 
 // Icônes SVG en ligne (pas de librairie d'icônes) : téléphone, mail et
 // Instagram en style Feather (contour), WhatsApp en remplissage
@@ -26,25 +26,25 @@ function IconeContact({ label, href, children }) {
 export default function Accueil() {
   return (
     <main className="flex flex-1 flex-col items-center justify-center px-6 py-24 text-center">
-      <h1 className="font-display text-6xl tracking-tight uppercase sm:text-8xl">
+      <h1 className="apparition font-display text-6xl tracking-tight uppercase sm:text-8xl">
         ARPENLUS
       </h1>
       <div
-        className="zebre mt-12 aspect-square w-full max-w-xl"
+        className="pop-carre delai-1 zebre mt-12 aspect-square w-full max-w-xl"
         role="img"
         aria-label="Carré à motif zébré"
       />
-      <p className="font-display mt-12 text-5xl tracking-tight sm:text-7xl">
+      <p className="apparition delai-2 font-display mt-12 text-5xl tracking-tight sm:text-7xl">
         2026
       </p>
-      <p className="mt-6 max-w-xl text-lg text-stone-300">
+      <p className="apparition delai-3 mt-6 max-w-xl text-lg text-stone-300">
         Joyeux anniversaire Arthur, bon pour 2 sites sur mesure :
         www.arpenlus.fr pour le groupe et www.arthurgrimpepartout.com quand tu
         auras décidé de travailler.
       </p>
       <nav
         aria-label="Contact et réseaux sociaux"
-        className="mt-12 flex items-center justify-center gap-4"
+        className="apparition delai-4 mt-12 flex items-center justify-center gap-4"
       >
         <IconeContact label="Téléphone" href={`tel:${TELEPHONE}`}>
           <svg
