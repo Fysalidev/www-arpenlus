@@ -20,9 +20,9 @@ const grotesk = Space_Grotesk({
 // Métadonnées mère : titre (gabarit « Page — Arpenlus » pour les
 // pages filles), description et Open Graph. Les pages filles
 // n'ont plus qu'à donner leur titre court ; l'openGraph d'une page
-// remplace celui du layout, il ne fusionne pas. L'image OG est
-// générée par le fichier opengraph-image.js (og:image automatique) ;
-// la carte Twitter pointe vers la même route.
+// remplace celui du layout, il ne fusionne pas. L'image de partage
+// est le fichier statique public/og.jpg (2400x1260, voir public/README) ;
+// la carte Twitter pointe vers le même fichier.
 export const metadata = {
   metadataBase: new URL(URL_SITE),
   title: {
@@ -36,10 +36,19 @@ export const metadata = {
     siteName: NOM,
     title: `${NOM} — Site officiel`,
     description: DESCRIPTION,
+    images: [
+      {
+        url: "/og.jpg",
+        width: 2400,
+        height: 1260,
+        type: "image/jpeg",
+        alt: `${NOM} — Site officiel`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/opengraph-image"],
+    images: ["/og.jpg"],
   },
 };
 
