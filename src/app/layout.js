@@ -1,5 +1,15 @@
+import { Anton } from "next/font/google";
 import { DESCRIPTION, NOM, URL_SITE } from "@/lib/site";
 import "./globals.css";
+
+// Police d'affichage du site : Anton (Google Fonts), poids unique 400.
+// La variable --font-anton est posée sur <html> et consommée via
+// l'utilitaire Tailwind `font-display` (voir globals.css).
+const anton = Anton({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-anton",
+});
 
 // Métadonnées mère : titre (gabarit « Page — Arpenlus » pour les
 // pages filles), description et Open Graph. Les pages filles
@@ -24,7 +34,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="fr" className="h-full antialiased">
+    <html lang="fr" className={`h-full antialiased ${anton.variable}`}>
       <body className="flex min-h-full flex-col">
         <a
           href="#contenu"
