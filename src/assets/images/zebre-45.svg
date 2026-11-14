@@ -2,8 +2,9 @@
 <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
  width="866.000000pt" height="866.000000pt" viewBox="0 0 866.000000 866.000000"
  preserveAspectRatio="xMidYMid meet">
-<rect width="866" height="866" fill="#ffffff"/>
-<g transform="translate(433.000000,433.000000) rotate(45) translate(-306.000000,-306.000000)">
+<defs>
+<pattern id="zebre45" width="612" height="612" patternUnits="userSpaceOnUse" patternTransform="rotate(45) scale(0.45)">
+<rect width="612" height="612" fill="#ffffff"/>
 <g transform="translate(0.000000,612.000000) scale(0.100000,-0.100000)"
 fill="#000000" stroke="none">
 <path d="M0 6058 l0 -63 19 41 c35 76 35 84 7 84 -25 0 -26 -2 -26 -62z"/>
@@ -121,5 +122,7 @@ l47 40 -2 216 -3 217 -40 -30z"/>
 17 -69 32 -131 34 -137 3 -10 47 -13 179 -13 l175 0 0 38 c0 60 -27 222 -65
 391 -19 86 -42 197 -50 246 -59 363 64 773 387 1286 99 159 113 225 42 199z"/>
 </g>
-</g>
+</pattern>
+</defs>
+<rect width="866" height="866" fill="url(#zebre45)"/>
 </svg>
