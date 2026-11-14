@@ -10,7 +10,10 @@ const LIGNE_2 =
 export default function Accueil() {
   return (
     <main className="flex flex-1 flex-col items-center justify-center px-6 py-24 text-center">
-      <h1 className="text-4xl font-semibold tracking-tight sm:text-6xl">
+      <p className="text-5xl" aria-hidden="true">
+        🍌
+      </p>
+      <h1 className="mt-4 text-4xl font-semibold tracking-tight sm:text-6xl">
         JOYEUX Anniversaire ARTHUR
       </h1>
       <div className="mt-10 max-w-xl space-y-2 text-lg text-stone-600">
