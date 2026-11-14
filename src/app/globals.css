@@ -21,7 +21,8 @@ body {
 /* Fond zébré de la page d'accueil (session du 14/11) : le motif
    zèbre (src/assets/images/zebre.svg) couvre toute la page derrière
    le texte, zébrures noires pleine force (décision du 14/11 soir).
-   La lisibilité revient au halo blanc du titre et à la bulle. */
+   Titre jaune net : pas de halo ni de flou (décision du 14/11
+   soir), la lisibilité repose sur la bulle. */
 .fond-zebre::before {
   content: "";
   position: absolute;
@@ -45,16 +46,6 @@ body {
   border-right: 0.7rem solid transparent;
   border-bottom: 1.1rem solid #ffffff;
   border-left: 0.7rem solid transparent;
-}
-
-/* Halo blanc du titre jaune (session du 14/11 soir) : le titre reste
-   lisible sur les zébrures noires — triple ombre douce autour des
-   lettres. */
-.halo-blanc {
-  text-shadow:
-    0 0 0.3rem #ffffff,
-    0 0 0.3rem #ffffff,
-    0 0 0.35rem #ffffff;
 }
 
 /* Apparition (session du 14/11) : chaque bloc entre en scène au
