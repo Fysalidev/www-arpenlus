@@ -33,17 +33,27 @@ body {
   background-repeat: no-repeat;
 }
 
-/* Titre ARPENLUS (session du 14/11) : le mot est posé sur un fond
-   zébré plus petit, ajusté au texte (bloc inline + padding dans le
-   JSX, motif en mosaïque de 160 px) ; les lettres sont blanches avec
-   un liseré noir pour bien voir leur bord sur le zébre. */
+/* Titre ARPENLUS (session du 14/11) : le fond zébré n'est visible que
+   dans les lettres (background-clip: text + texte transparent), avec
+   le motif tourné de 45° — pré-tourné dans zebre-45.svg, car CSS ne
+   sait pas tourner un background-image. Liseré noir sur les lettres
+   pour voir leur bord. @supports : sans background-clip:text, le
+   titre reste blanc uni. */
 .titre-zebre {
-  background-color: #ffffff;
-  background-image: url("../assets/images/zebre.svg");
-  background-size: 160px 160px;
-  background-position: center;
-  background-repeat: repeat;
   color: #ffffff;
   -webkit-text-stroke: 0.045em #000000;
   paint-order: stroke fill;
+}
+
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .titre-zebre {
+    background-color: #ffffff;
+    background-image: url("../assets/images/zebre-45.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
 }
