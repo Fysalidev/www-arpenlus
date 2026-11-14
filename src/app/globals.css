@@ -47,11 +47,14 @@ body {
   border-left: 0.7rem solid transparent;
 }
 
-/* Halo blanc du titre (session du 14/11) : le titre reste lisible
-   sur les zébrures noires — triple ombre douce autour des
+/* Halo blanc du titre jaune (session du 14/11 soir) : le titre reste
+   lisible sur les zébrures noires — triple ombre douce autour des
    lettres. */
 .halo-blanc {
-  text-shadow: 0 0 0.3rem #ffffff, 0 0 0.3rem #ffffff, 0 0 0.35rem #ffffff;
+  text-shadow:
+    0 0 0.3rem #ffffff,
+    0 0 0.3rem #ffffff,
+    0 0 0.35rem #ffffff;
 }
 
 /* Apparition (session du 14/11) : chaque bloc entre en scène au
