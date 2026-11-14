@@ -17,3 +17,16 @@ body {
   background: var(--background);
   color: var(--foreground);
 }
+
+/* Fond zèbre de la page d'accueil (public/zebre.svg) : plein page
+   derrière le texte, en filigrane (opacité 15 %) pour garder le
+   message lisible. Couvre la page (cover), recadré centré. */
+.fond-zebre {
+  position: absolute;
+  inset: 0;
+  z-index: -10;
+  background-image: url("/zebre.svg");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.15;
+}
