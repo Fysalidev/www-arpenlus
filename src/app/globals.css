@@ -35,14 +35,15 @@ body {
 }
 
 /* Titre ARPENLUS (session du 14/11) : le fond zébré n'est visible que
-   dans les lettres (background-clip: text + texte transparent), avec
-   le motif tourné de 45° — pré-tourné dans zebre-45.svg, car CSS ne
-   sait pas tourner un background-image. Liseré noir sur les lettres
-   pour voir leur bord. @supports : sans background-clip:text, le
-   titre reste blanc uni. */
+   dans les lettres (background-clip: text + texte transparent), motif
+   tourné de 45° et affiné — pré-tourné dans zebre-45.svg (mosaïque
+   rotate(45) scale(0.45)), car CSS ne sait pas tourner un
+   background-image. Liseré blanc épais (0.06em) : sur fond noir, il
+   épaissit visiblement les lettres et dessine leur bord. @supports :
+   sans background-clip:text, le titre reste blanc uni. */
 .titre-zebre {
   color: #ffffff;
-  -webkit-text-stroke: 0.045em #000000;
+  -webkit-text-stroke: 0.06em #ffffff;
   paint-order: stroke fill;
 }
 
