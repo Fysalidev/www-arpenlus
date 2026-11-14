@@ -18,15 +18,67 @@ body {
   color: var(--foreground);
 }
 
-/* Fond zèbre de la page d'accueil (public/zebre.svg) : plein page
-   derrière le texte, en filigrane (opacité 15 %) pour garder le
-   message lisible. Couvre la page (cover), recadré centré. */
-.fond-zebre {
+/* Fond zébré de la page d'accueil (session du 14/11) : le motif
+   zèbre (src/assets/images/zebre.svg) couvre toute la page derrière
+   le texte. Zébrures noires affirmées (demande du 14/11 soir) :
+   opacité 30 % — la valeur se règle ici (0.15 = discret, 0.5 =
+   motif dominant). */
+.fond-zebre::before {
+  content: "";
   position: absolute;
   inset: 0;
-  z-index: -10;
-  background-image: url("/zebre.svg");
+  z-index: -1;
+  background-image: url("../assets/images/zebre.svg");
   background-size: cover;
   background-position: center;
-  opacity: 0.15;
+  background-repeat: no-repeat;
+  opacity: 0.3;
+}
+
+/* Bulle BD du message (session du 14/11) : le texte cadeau vit dans
+   une bulle blanche arrondie (bg-white + rounded-3xl dans le JSX),
+   queue en triangle pointant vers le titre au-dessus. */
+.bulle::after {
+  content: "";
+  position: absolute;
+  top: -1.1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  border-right: 0.7rem solid transparent;
+  border-bottom: 1.1rem solid #ffffff;
+  border-left: 0.7rem solid transparent;
+}
+
+/* Apparition (session du 14/11) : chaque bloc entre en scène au
+   chargement — banane, titre, bulle — en fondu remonté, décalé de
+   150 ms entre eux (fill backwards : invisible pendant le délai).
+   Prefers-reduced-motion : pas d'animation, contenu visible
+   directement. */
+@keyframes apparition {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.apparition {
+  animation: apparition 0.6s ease-out backwards;
+}
+
+.apparition-2 {
+  animation-delay: 0.15s;
+}
+
+.apparition-3 {
+  animation-delay: 0.3s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .apparition {
+    animation: none;
+  }
 }
