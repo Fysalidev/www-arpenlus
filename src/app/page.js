@@ -12,7 +12,7 @@ export default function Accueil() {
         role="img"
         aria-label="Carré à motif zébré"
       />
-      <p className="texte-zebre font-display mt-12 text-5xl tracking-tight sm:text-7xl">
+      <p className="font-display mt-12 text-5xl tracking-tight sm:text-7xl">
         2026
       </p>
       <p className="mt-6 max-w-xl text-lg text-stone-300">
