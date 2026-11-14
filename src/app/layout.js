@@ -22,7 +22,9 @@ const grotesk = Space_Grotesk({
 // n'ont plus qu'à donner leur titre court ; l'openGraph d'une page
 // remplace celui du layout, il ne fusionne pas. L'image de partage
 // est le fichier statique public/og.jpg (2400x1260, voir public/README) ;
-// la carte Twitter pointe vers le même fichier.
+// la carte Twitter pointe vers le même fichier. Favicon : dérivés
+// générés depuis public/favicon.png (master 612x612) — ICO multi-tailles
+// 16/32/48, PNG 32x32 et apple-icon 180x180.
 export const metadata = {
   metadataBase: new URL(URL_SITE),
   title: {
@@ -30,6 +32,13 @@ export const metadata = {
     template: `%s — ${NOM}`,
   },
   description: DESCRIPTION,
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-32.png", type: "image/png", sizes: "32x32" },
+    ],
+    apple: "/apple-icon.png",
+  },
   openGraph: {
     type: "website",
     locale: "fr_FR",
