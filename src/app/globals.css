@@ -6,13 +6,15 @@
 }
 
 /* Palette et variables du site : fond noir, texte blanc (décision du
-   14/11). La police d'affichage Anton est exposée via --font-anton
-   (next/font, layout.js) et reprise ici comme utilitaire
-   `font-display`. */
+   14/11). Polices : Anton en affichage (--font-anton → utilitaire
+   `font-display`), Space Grotesk comme police de corps par défaut
+   (--font-grotesk → --font-sans). Les deux variables sont posées sur
+   <html> par next/font (layout.js). */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-display: var(--font-anton);
+  --font-sans: var(--font-grotesk), ui-sans-serif, system-ui, sans-serif;
 }
 
 body {
