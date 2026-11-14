@@ -33,3 +33,60 @@ body {
   background-position: center;
   background-repeat: no-repeat;
 }
+
+/* Apparition rapide (session du 14/11) : fondu remonté en cascade
+   pour les blocs texte (.apparition + .delai-N), pop scale/rotation
+   pour le carré zébré (.pop-carre). Durées courtes (~0,35 s), délais
+   de 70 ms. prefers-reduced-motion : aucune animation. */
+@keyframes apparition {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: scale(0.85) rotate(-2deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.apparition {
+  animation: apparition 0.35s ease-out backwards;
+}
+
+.pop-carre {
+  animation: pop 0.4s ease-out backwards;
+}
+
+.delai-1 {
+  animation-delay: 0.07s;
+}
+
+.delai-2 {
+  animation-delay: 0.14s;
+}
+
+.delai-3 {
+  animation-delay: 0.21s;
+}
+
+.delai-4 {
+  animation-delay: 0.28s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .apparition,
+  .pop-carre {
+    animation: none;
+  }
+}
