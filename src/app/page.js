@@ -3,7 +3,7 @@
 export default function Accueil() {
   return (
     <main className="flex flex-1 flex-col items-center justify-center px-6 py-24 text-center">
-      <h1 className="font-display text-6xl tracking-tight uppercase sm:text-8xl">
+      <h1 className="texte-zebre font-display text-6xl tracking-tight uppercase sm:text-8xl">
         ARPENLUS
       </h1>
       <div
