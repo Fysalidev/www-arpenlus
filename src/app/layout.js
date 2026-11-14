@@ -1,14 +1,20 @@
-import { Anton } from "next/font/google";
+import { Anton, Space_Grotesk } from "next/font/google";
 import { DESCRIPTION, NOM, URL_SITE } from "@/lib/site";
 import "./globals.css";
 
-// Police d'affichage du site : Anton (Google Fonts), poids unique 400.
-// La variable --font-anton est posée sur <html> et consommée via
-// l'utilitaire Tailwind `font-display` (voir globals.css).
+// Polices du site (Google Fonts) : Anton pour l'affichage (poids
+// unique 400), Space Grotesk pour le texte. Les variables sont posées
+// sur <html> et consommées via les utilitaires Tailwind `font-display`
+// et `font-sans` (voir globals.css).
 const anton = Anton({
   weight: "400",
   subsets: ["latin"],
   variable: "--font-anton",
+});
+
+const grotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-grotesk",
 });
 
 // Métadonnées mère : titre (gabarit « Page — Arpenlus » pour les
@@ -34,7 +40,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="fr" className={`h-full antialiased ${anton.variable}`}>
+    <html
+      lang="fr"
+      className={`h-full antialiased ${anton.variable} ${grotesk.variable}`}
+    >
       <body className="flex min-h-full flex-col">
         <a
           href="#contenu"
