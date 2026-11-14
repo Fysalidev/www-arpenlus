@@ -33,24 +33,17 @@ body {
   background-repeat: no-repeat;
 }
 
-/* Titre zébré (session du 14/11) : même motif, mais détouré sur les
-   lettres du titre (background-clip: text + texte transparent). Le
-   @supports garde un titre blanc uni si le navigateur ne sait pas
-   détourer le fond sur le texte. */
-@supports ((-webkit-background-clip: text) or (background-clip: text)) {
-  .texte-zebre {
-    background-color: #ffffff;
-    background-image: url("../assets/images/zebre.svg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    /* Liseré blanc autour des lettres : sans lui, les zébrures noires
-       se confondent avec le fond noir et le bord des lettres disparaît.
-       paint-order garde le liseré derrière le remplissage zébré. */
-    -webkit-text-stroke: 0.05em #ffffff;
-    paint-order: stroke fill;
-  }
+/* Titre ARPENLUS (session du 14/11) : le mot est posé sur un fond
+   zébré plus petit, ajusté au texte (bloc inline + padding dans le
+   JSX, motif en mosaïque de 160 px) ; les lettres sont blanches avec
+   un liseré noir pour bien voir leur bord sur le zébre. */
+.titre-zebre {
+  background-color: #ffffff;
+  background-image: url("../assets/images/zebre.svg");
+  background-size: 160px 160px;
+  background-position: center;
+  background-repeat: repeat;
+  color: #ffffff;
+  -webkit-text-stroke: 0.045em #000000;
+  paint-order: stroke fill;
 }
