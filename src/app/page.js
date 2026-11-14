@@ -1,15 +1,23 @@
-// Accueil : page provisoire du squelette de démarrage — le design
-// sera construit en production avec le contenu client (pas de
-// maquette, règle de la maison).
+// Accueil : page vœux d'anniversaire pour Arthur — deux sites sur
+// mesure offerts, dont celui-ci (mise en ligne dimanche soir). Le
+// contenu du site Arpenlus prendra cette page en base plus tard.
+const INTRO = "Bon pour 2 sites sur mesure\u00A0:";
+const LIGNE_1 =
+  "www.arthurgrimpepartout.fr quand tu auras décidé de travailler 🤭";
+const LIGNE_2 =
+  "et un site www.arpenlus.fr qu'on peut mettre en ligne dimanche soir 🚀";
+
 export default function Accueil() {
   return (
     <main className="flex flex-1 flex-col items-center justify-center px-6 py-24 text-center">
-      <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
-        Arpenlus
+      <h1 className="text-4xl font-semibold tracking-tight sm:text-6xl">
+        JOYEUX Anniversaire ARTHUR
       </h1>
-      <p className="mt-6 max-w-md text-lg text-stone-500">
-        Site en préparation — contenu et design à venir.
-      </p>
+      <div className="mt-10 max-w-xl space-y-2 text-lg text-stone-600">
+        <p>{INTRO}</p>
+        <p>{LIGNE_1}</p>
+        <p>{LIGNE_2}</p>
+      </div>
     </main>
   );
 }
