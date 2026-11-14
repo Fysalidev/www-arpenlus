@@ -23,39 +23,13 @@ body {
 }
 
 /* Carré zébré de la page d'accueil (session du 14/11) : le motif
-   zèbre tourné de 45° (src/assets/images/zebre-45.svg, zébrures noires
-   sur fond blanc) remplit le carré centré — le carré étant carré, le
-   motif en cover épouse exactement sa forme. */
+   zèbre tourné de 45° et affiné (src/assets/images/zebre-45.svg,
+   zébrures noires sur fond blanc) remplit tout le carré centré — le
+   carré étant carré, le motif en cover épouse exactement sa forme. */
 .zebre {
   background-color: #ffffff;
   background-image: url("../assets/images/zebre-45.svg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-}
-
-/* Titre ARPENLUS (session du 14/11) : le fond zébré n'est visible que
-   dans les lettres (background-clip: text + texte transparent), motif
-   tourné de 45° et affiné — pré-tourné dans zebre-45.svg (mosaïque
-   rotate(45) scale(0.45)), car CSS ne sait pas tourner un
-   background-image. Liseré blanc épais (0.06em) : sur fond noir, il
-   épaissit visiblement les lettres et dessine leur bord. @supports :
-   sans background-clip:text, le titre reste blanc uni. */
-.titre-zebre {
-  color: #ffffff;
-  -webkit-text-stroke: 0.06em #ffffff;
-  paint-order: stroke fill;
-}
-
-@supports ((-webkit-background-clip: text) or (background-clip: text)) {
-  .titre-zebre {
-    background-color: #ffffff;
-    background-image: url("../assets/images/zebre-45.svg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
 }
