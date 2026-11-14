@@ -47,5 +47,10 @@ body {
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    /* Liseré blanc autour des lettres : sans lui, les zébrures noires
+       se confondent avec le fond noir et le bord des lettres disparaît.
+       paint-order garde le liseré derrière le remplissage zébré. */
+    -webkit-text-stroke: 0.05em #ffffff;
+    paint-order: stroke fill;
   }
 }
