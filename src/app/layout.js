@@ -21,7 +21,7 @@ const grotesk = Space_Grotesk({
 // pages filles), description et Open Graph. Les pages filles
 // n'ont plus qu'à donner leur titre court ; l'openGraph d'une page
 // remplace celui du layout, il ne fusionne pas. L'image de partage
-// est le fichier statique public/og.jpg (2400x1260, voir public/README) ;
+// est le fichier statique public/og.png (1200x630, voir public/README) ;
 // la carte Twitter pointe vers le même fichier. Favicon : dérivés
 // générés depuis public/favicon.png (master 612x612) — ICO multi-tailles
 // 16/32/48, PNG 32x32 et apple-icon 180x180.
@@ -47,17 +47,17 @@ export const metadata = {
     description: DESCRIPTION,
     images: [
       {
-        url: "/og.jpg",
-        width: 2400,
-        height: 1260,
-        type: "image/jpeg",
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        type: "image/png",
         alt: `${NOM} — Site officiel`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/og.jpg"],
+    images: ["/og.png"],
   },
 };
 
