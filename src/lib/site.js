@@ -19,3 +19,10 @@ export const URL_SITE =
 // réseaux) au fil du projet.
 export const NOM = "Arpenlus";
 export const DESCRIPTION = "Site officiel d'Arpenlus.";
+
+// Coordonnées et réseaux (session du 14/11) : valeurs provisoires,
+// à remplacer par les vraies coordonnées du client.
+export const TELEPHONE = "+33 6 00 00 00 00";
+export const MAIL = "contact@arpenlus.fr";
+export const INSTAGRAM = "https://www.instagram.com/arpenlus/";
+export const WHATSAPP = "https://wa.me/33600000000";
