@@ -13,7 +13,7 @@ export default function Accueil() {
       <p className="apparition text-5xl" aria-hidden="true">
         🍌
       </p>
-      <h1 className="apparition apparition-2 halo-blanc mt-4 text-4xl font-semibold tracking-tight sm:text-6xl">
+      <h1 className="apparition apparition-2 halo-blanc mt-4 text-yellow-400 text-4xl font-semibold tracking-tight sm:text-6xl">
         JOYEUX Anniversaire ARTHUR
       </h1>
       <div className="apparition apparition-3 bulle relative mt-10 max-w-xl space-y-2 rounded-3xl bg-white px-8 py-6 text-lg text-stone-600 shadow-lg">
