@@ -1,0 +1,64 @@
+name: Init lockfile
+
+# One-shot de démarrage : le package-lock.json n'accompagne pas le
+# premier push (trop volumineux pour le connecteur GitHub). Ce
+# workflow le génère (npm install --package-lock-only), déroule les
+# mêmes contrôles que la CI (npm ci + format:check + lint + build)
+# pour garantir que le lockfile est à jour ET que tout passe, puis le
+# commite sur main. Ne fait rien si le lockfile existe déjà — à
+# supprimer du repo après son exécution.
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  lockfile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Lockfile déjà présent ?
+        id: present
+        run: |
+          if [ -f package-lock.json ]; then
+            echo "present=oui" >> "$GITHUB_OUTPUT"
+          else
+            echo "present=non" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Générer le lockfile
+        if: steps.present.outputs.present == 'non'
+        run: npm install --package-lock-only
+
+      - name: Installer les dépendances
+        if: steps.present.outputs.present == 'non'
+        run: npm ci
+
+      - name: Vérifier le formatage (Prettier)
+        if: steps.present.outputs.present == 'non'
+        run: npm run format:check
+
+      - name: Lint (ESLint)
+        if: steps.present.outputs.present == 'non'
+        run: npm run lint
+
+      - name: Build (Next.js)
+        if: steps.present.outputs.present == 'non'
+        run: npm run build
+
+      - name: Commiter le lockfile
+        if: steps.present.outputs.present == 'non'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add package-lock.json
+          git commit -m "2 | Build | package-lock.json généré (npm install --package-lock-only)"
+          git push

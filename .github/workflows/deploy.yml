@@ -1,0 +1,68 @@
+name: Déploiement Vercel
+
+on:
+  # Déploiements automatiques : intégration Git de Vercel (docs.vercel.com/git) —
+  # production sur push main ; les previews de branches sont coupées par
+  # vercel.json (git.deploymentEnabled, branches dev-*, session du 12/11). Ce
+  # workflow ne se déclenche plus sur les push : il est le secours manuel
+  # (onglet Actions → Run workflow).
+  workflow_dispatch:
+    inputs:
+      cible:
+        description: "Cible du déploiement"
+        required: true
+        default: "preview"
+        type: choice
+        options:
+          - preview
+          - production
+
+# Un seul déploiement de secours à la fois
+concurrency:
+  group: vercel-secours
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Installer les dépendances
+        run: npm ci
+
+      - name: Contrôles qualité rapides
+        run: |
+          npm run format:check
+          npm run lint
+
+      - name: Déterminer la cible
+        id: cible
+        run: |
+          if [ "${{ inputs.cible }}" = "production" ]; then
+            echo "mode=--prod" >> "$GITHUB_OUTPUT"
+          else
+            echo "mode=" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Déployer sur Vercel
+        id: deploiement
+        run: |
+          url=$(npx vercel deploy ${{ steps.cible.outputs.mode }} --yes --token=${{ secrets.VERCEL_TOKEN }} | tail -n 1)
+          test -n "$url"
+          echo "url=$url" >> "$GITHUB_OUTPUT"
+          echo "Déploiement : $url"
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+      - name: URL de preview
+        if: steps.cible.outputs.mode == ''
+        run: |
+          echo "Preview : ${{ steps.deploiement.outputs.url }} (URL éphémère, visible dans les logs)"
