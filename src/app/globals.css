@@ -30,3 +30,20 @@ body {
   background-position: center;
   background-repeat: no-repeat;
 }
+
+/* Titre zébré (session du 14/11) : même motif, mais détouré sur les
+   lettres du titre (background-clip: text + texte transparent). Le
+   @supports garde un titre blanc uni si le navigateur ne sait pas
+   détourer le fond sur le texte. */
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .texte-zebre {
+    background-color: #ffffff;
+    background-image: url("../assets/images/zebre.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
