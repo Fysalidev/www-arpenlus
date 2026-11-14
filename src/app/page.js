@@ -1,10 +1,11 @@
 // Accueil (session du 14/11) : page noire — titre ARPENLUS en Anton
-// posé sur un fond zébré (lettres blanches à liseré noir), carré centré
-// rempli du motif zébré, puis « 2026 » et le paragraphe.
+// avec fond zébré tourné 45° visible uniquement dans les lettres
+// (liseré noir), carré centré rempli du motif zébré, puis « 2026 » et
+// le paragraphe.
 export default function Accueil() {
   return (
     <main className="flex flex-1 flex-col items-center justify-center px-6 py-24 text-center">
-      <h1 className="titre-zebre inline-block px-6 py-2 font-display text-6xl tracking-tight uppercase sm:text-8xl">
+      <h1 className="titre-zebre font-display text-6xl tracking-tight uppercase sm:text-8xl">
         ARPENLUS
       </h1>
       <div
