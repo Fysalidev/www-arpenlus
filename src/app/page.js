@@ -16,7 +16,7 @@ export default function Accueil() {
         2026
       </p>
       <p className="mt-6 max-w-xl text-lg text-stone-300">
-        Joyeux anniversaire Arthure, bon pour 2 sites sur mesure :
+        Joyeux anniversaire Arthur, bon pour 2 sites sur mesure :
         www.arpenlus.fr pour le groupe et www.arthurgrimpepartout.com quand tu
         auras décidé de travailler.
       </p>
