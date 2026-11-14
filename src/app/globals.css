@@ -23,11 +23,12 @@ body {
 }
 
 /* Carré zébré de la page d'accueil (session du 14/11) : le motif
-   zèbre (src/assets/images/zebre.svg, zébrures noires) se déploie sur
-   fond blanc à l'intérieur du carré centré. */
+   zèbre tourné de 45° (src/assets/images/zebre-45.svg, zébrures noires
+   sur fond blanc) remplit le carré centré — le carré étant carré, le
+   motif en cover épouse exactement sa forme. */
 .zebre {
   background-color: #ffffff;
-  background-image: url("../assets/images/zebre.svg");
+  background-image: url("../assets/images/zebre-45.svg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
