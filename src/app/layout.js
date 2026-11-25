@@ -1,3 +1,5 @@
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Anton, Space_Grotesk } from "next/font/google";
 import { DESCRIPTION, NOM, URL_SITE } from "@/lib/site";
 import "./globals.css";
@@ -81,6 +83,11 @@ export default function RootLayout({ children }) {
         >
           {children}
         </div>
+        {/* Analytics et Speed Insights Vercel (25/11) : audience et
+            performance web — les événements ne partent que depuis un
+            déploiement Vercel, aucun effet en local. */}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
